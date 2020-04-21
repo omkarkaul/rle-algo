@@ -1,4 +1,11 @@
+from sys import stdin
+
+s = stdin.readline().rstrip()
+
 def rle(s):
+    if s == '':
+        return s
+
     ch_stack = [c for c in s] #build stack from input string
     reversed_rle = '' #since we're using a stack, we build rle in reverse
 
@@ -11,7 +18,7 @@ def rle(s):
         if ch == last_ch: #if curr character is same as last seen
             count += 1 #increment count of current sequence
             last_ch = ch #update last seen character to current
-       else: #otherwise
+        else: #otherwise
             reversed_rle += (last_ch + str(count)) #add rle of current sequence to reversed rle string
             last_ch = ch #update last seen character to current
             count = 1
@@ -19,4 +26,6 @@ def rle(s):
     reversed_rle += (last_ch + str(count)) #add last chunk/sequence
 
     return reversed_rle[::-1] #return a reverse of the reversed rle
+
+print(rle(s))
 
