@@ -3,6 +3,11 @@ from sys import stdin
 s = stdin.readline().rstrip()
 
 def rle(s):
+    """
+    performs rle on valid utf char string
+    asymptotic runtime: O(n)
+    space complexity: O(n)
+    """
     if s == '':
         return s
 
